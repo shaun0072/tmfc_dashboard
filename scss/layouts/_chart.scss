@@ -1,0 +1,134 @@
+.test {
+	width: 500px;
+}
+html {
+	height: 100%;
+}
+.chartBody {
+	background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
+	background-image: linear-gradient(top, #edecec, #cecbc9);
+	background-attachment: fixed;
+}
+.chartWrapper {
+	max-width: 700px;
+	/* background-image: url(../assets/img/chartBG.jpg); */
+	width: 70%;
+}
+canvas {
+	max-height: 430px;
+}
+button {
+	border-width: 0;
+}
+button:focus {
+	outline: 0;
+}
+.btns_section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	.test_btns_container {
+		margin: 40px 0px 0 4px;
+		font-size: 13px;
+	}
+	.add_remove_btns_container {
+		margin-left: calc(100% - 259px);
+		.plus {
+
+		}
+	}
+}
+.test_btns_container {
+	display: flex;
+	button {
+		padding: 7px 10px;
+		transition: all .2s;
+		&:first-of-type {
+			border-top-left-radius: 5px;
+		}
+		&:last-of-type {
+			border-top-right-radius: 5px;
+		}
+	}
+}
+.chartTankNumber {
+	margin: 5px 0 0 31px;
+	font-size: 20px;
+	letter-spacing: 4px;
+    color: peru;
+}
+/********************Button Shit*****************************/
+
+.button{
+/* 	background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff);
+	border-radius: 50%;
+	box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: relative;
+	height: 30px;
+	width: 50px; */	
+	background: #D0D0D0 ;
+	padding: 10px 25px;
+	margin: 5px;
+	-webkit-transition: all .1s linear;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 10px 130px -40px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 10px 130px -40px rgba(0,0,0,0.75);
+	box-shadow: 1px 10px 130px -40px rgba(0,0,0,0.75);
+	transition: all .1s linear;
+}
+
+.button:after{
+	color: black;
+	content: "";
+	display: block;
+	font-size: 15px;
+	text-decoration: none;
+	position: absolute;
+
+}	
+.button:hover{
+	background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+	background-image: linear-gradient(top, #fff, #f4f1ee);
+	color:#0088cc;
+}
+	
+.tick:hover:after{
+	color:#83d244;
+	text-shadow:0px 0px 6px #83d244;
+}
+		
+.button:active{
+	background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+	background-image: linear-gradient(top, #efedec, #f7f4f4);
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.button:active:after{
+	color:#dbd2d2;
+	text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+.test_btns_container button.active {
+	color: white;
+}
+.cleaner {
+	background: $cleanerOrganic !important; 
+}
+.acid {
+	background: $cleanerInorganic !important; 
+}
+.electroPlating {
+	background: $electroPlating !important;
+}
+.rinse {
+	background: $rinse !important;
+}
+.chromate {
+	background: $chromate !important;
+}
+.seal {
+	background: $seal !important;
+}
+.sourDip {
+	background: $sourDip !important;
+}

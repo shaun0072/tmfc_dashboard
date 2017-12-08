@@ -1,0 +1,38 @@
+.selectionPage {
+	width: 100vw;
+	background: #DCDCDC;
+	.selectWrapper {
+		margin: 150px auto;
+	}
+	h1 {
+		text-align: center;
+	}
+}
+select {
+	display: block;
+	margin: 15px auto;
+	width: 250px;
+	padding: 10px;
+	outline: none;
+}
+.lineNumbers {
+	margin: 0 auto;
+}
+.lineNumbersHolder {
+	margin: 15px auto;
+	min-height: 40.8px;
+}
+.load {
+	margin: 40px auto 0 auto;
+    display: block;
+	width: 200px;
+	padding: 15px;
+	border: 2px solid white;
+	background: rgba(211,211,211,0.5);
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: background .4s;
+}

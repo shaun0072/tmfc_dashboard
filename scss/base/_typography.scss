@@ -1,0 +1,63 @@
+body {
+	font: 16px $baseFont;
+}
+.tank {
+	margin-top: 100px;
+	div.tank_number {
+		font: $lg-font $specialty-font;
+		letter-spacing: -1px;
+		margin-bottom: -8px;
+		a {
+			color: rgb(192,192,192);
+			font-size: 0.5em;
+			letter-spacing: 9px;
+			padding-left: 9px;
+			text-decoration: none;
+		}
+	}
+	.last_made-up {
+		font-size: $mini-font;
+		span {
+			color: tomato;
+			font-size: 1.4em;
+			margin-right: 2px;
+		}
+		a {
+			color: inherit;
+			text-decoration: none;
+			font-weight: bold;
+			border: 1px solid black;
+			padding: 1px 3px;
+		}
+	}
+	.tds_list {
+		li {
+			font: $sm-font $baseFont;
+			a {
+				color: inherit;
+			}
+		}
+	}
+	.process_control{
+		h3 {
+			font: $md-font $baseFont;
+			font-weight: 300;
+			letter-spacing: -1px;
+		}
+		li {
+			font-size: 0.8em;
+			color: grey;
+		}
+		li span.propValue {
+			color: tomato;
+		}
+	}
+}
+.data {
+	font-size: 0.875em;
+}
+.test_btns_container button {
+	font-size: 18px;
+	font-family: 'Kanit', sans-serif;
+	font-weight: 300;
+}

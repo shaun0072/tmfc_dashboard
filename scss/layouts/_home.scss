@@ -1,0 +1,760 @@
+body {
+	margin-bottom: 50px;
+}
+.tank {
+/* 	border-top: 2px solid black;
+	border-bottom: 2px solid black; */
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+.tank_id {
+	flex-basis: 50%;
+	align-self: flex-end;
+	border-bottom: 1px solid black;
+	position: relative;
+	div.application_type {
+		margin: 0;
+		padding: 5px 0;
+	}
+	div.applicationType {
+		font-size: 30px;
+	}
+	.last_made-up {
+		position: absolute;
+		bottom: -27px;
+		left: 5px;
+	}
+}
+.tds_list {
+	flex-basis: 50%;
+	li {
+		float: right;
+		margin: 52px 10px 0 0;
+	}
+	img {
+		height: 45px;
+	}
+}
+.process_control{
+	margin: 30px 0;
+	padding: 50px 25px;
+	max-width: 400px;
+	h3 {
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+	}
+	li {
+		display: block;
+		padding: 2px 10px 0;
+	}
+	ul {
+		display: none;
+	}
+}
+.taken {
+	display: inline-block;
+	color: black;
+	font-size: 9px;
+	padding-bottom: 3px;
+	vertical-align: middle;
+}
+.data_records_list li {
+	max-width: 182px;
+	padding: 5px 10px 5px 28px;
+	border-radius: 11px;
+	margin: 9px 0;
+	background: rgba(242,242,242,1);
+	background: -moz-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(214,214,214,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,242,242,1)), color-stop(100%, rgba(214,214,214,1)));
+	background: -webkit-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(214,214,214,1) 100%);
+	background: -o-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(214,214,214,1) 100%);
+	background: -ms-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(214,214,214,1) 100%);
+	background: linear-gradient(to bottom, rgba(242,242,242,1) 0%, rgba(214,214,214,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#d6d6d6', GradientType=0 );
+	position: relative;
+	cursor: pointer;
+	width: 89%;
+	box-shadow: 2px 6px 10px -2px rgba(0, 0, 0, 0.3);
+	svg {
+		height: 18px;
+		width: 16px;
+		position: absolute;
+		left: 8px;
+		top: 6px;
+		fill: #FCB446;
+	}
+}
+.tankTable {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: nowrap;
+	margin: 0;
+	.data {
+		flex-basis: 50%;
+	}
+	.data:first-child {
+		text-align: right;
+		margin-right: 4px;
+	}
+	.data:nth-child(2) {
+		text-align: left;
+		margin-left: 4px;
+		font-weight: 700;
+	}
+	.parenthesis {
+		font-size: 0.6em;
+	}
+}
+.remodal {
+	padding: 35px 0;
+}
+.remodal_heading {
+	font-size: 1.5em;
+}
+.theLine {
+	background: white;
+}
+/******************NEW MODAL***********************/
+
+.myModalOverlay {
+	display: none;
+	position: fixed;
+    top: 0;
+	height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+	overflow: scroll;
+	z-index: 10;
+}
+
+
+
+/******************1700 LINE***********************/
+.line1700 {	
+	margin: 90px auto 0;
+	position: relative;
+	height: 500px;
+	width: 90%;
+	max-width: 500px;
+	a {
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 0.6em;
+	}
+}
+.tankSquare {
+	width: 100px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	border: 1px solid rgba(0,0,0,0.4);
+	display: flex;
+	flex-wrap: wrap;
+	.tankNum {
+		flex-basis: 100%;
+		text-align: left;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-weight: bold;
+	}
+	.applicationType {
+		display: block;
+		flex-basis: 100%;
+		text-align: center;
+		align-self: center;
+		text-transform: uppercase;
+	}
+}
+.t1701 {
+	height: 85px;
+	top: -65px;
+	left: 0;
+	background: $cleanerOrganic;
+}
+.t1702 {
+	height: 60px;
+	top: 20px;
+	left: 0;
+	background: $cleanerOrganic;
+}
+.t1703 {
+	height: 35px;
+	top: 80px;
+	left: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1704 {
+	height: 80px;
+	top: 115px;
+	left: 0;
+	background: $cleanerInorganic;
+}
+.t1705 {
+	height: 35px;
+	top: 195px;
+	left: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1706 {
+	height: 100px;
+	top: 230px;
+	left: 0;
+	background: $electroPlating;
+	color: black;
+}
+.t1707 {
+	height: 100px;
+	top: 330px;
+	left: 0;
+	background: $electroPlating;
+	color: black;
+}
+.t1708 {
+	height: 50px;
+	top: 430px;
+	left: 0;
+	width: 100%;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1709 {
+	height: 40px;
+	top: 390px;
+	right: 0;
+	background: $sourDip;
+	color: black;
+}
+.t1710 {
+	height: 35px;
+	top: 355px;
+	right: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1711 {
+	height: 60px;
+	top: 295px;
+	right: 0;
+	background: $chromate;
+}
+.t1712 {
+	height: 35px;
+	top: 260px;
+	right: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1713 {
+	height: 60px;
+	top: 200px;
+	right: 0;
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t1714 {
+	height: 35px;
+	top: 165px;
+	right: 0;
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t1715 {
+	height: 45px;
+	top: 120px;
+	right: 0;
+	background: $rinse;
+	border: 1.5px solid tomato;
+	color: rgba(0,0,0,0.5);
+}
+.t1716 {
+	height: 60px;
+	top: 60px;
+	right: 0;
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t1717 {
+	height: 50px;
+	top: 10px;
+	right: 0;
+	background: $chromate;
+}
+.t1718 {
+	height: 35px;
+	top: -25px;
+	right: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+/******************1300 LINE***********************/
+.line1300 {	
+	margin: 90px auto 0;
+	position: relative;
+	height: 500px;
+	width: 90%;
+	max-width: 500px;
+}
+.tankSquare {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	font-size: 0.6em;
+}
+.t1301 {
+	height: 65px;
+	top: -65px;
+	right: 0;
+	background: $cleanerOrganic;
+}
+.t1302 {
+	height: 40px;
+	top: 0px;
+	right: 0;
+	background: $cleanerOrganic;
+}
+.t1303 {
+	height: 50px;
+	top: 40px;
+	right: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1304 {
+	height: 50px;
+	top: 90px;
+	right: 0;
+	background: $cleanerInorganic;
+}
+.t1305 {
+	height: 50px;
+	top: 140px;
+	right: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1306 {
+	height: 100px;
+	top: 190px;
+	right: 0;
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t1307 {
+	height: 100px;
+	top: 290px;
+	right: 0;
+	background: $electroPlating;
+	color: black;
+}
+.t1308 {
+	height: 40px;
+	top: 390px;
+	left: 0;
+	background: $non-use;
+	width: 100%;
+	color: black;
+}
+.t1309 {
+	height: 50px;
+	top: 340px;
+	left: 0;
+	background: $sourDip;
+	color: black;
+}
+.t1310 {
+	height: 50px;
+	top: 290px;
+	left: 0;
+	background: $chromate;
+}
+.t1311 {
+	height: 50px;
+	top: 240px;
+	left: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1312 {
+	height: 50px;
+	top: 190px;
+	left: 0;
+	background: $chromate;
+}
+.t1313 {
+	height: 50px;
+	top: 140px;
+	left: 0;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t1314 {
+	height: 50px;
+	top: 50px;
+	left: 0;
+	background: $seal;
+	color: rgba(0,0,0,0.5);
+	border-radius: 50%;
+	height: initial;
+	padding: 30px 0px;
+	.circleTank {
+		position: initial;
+		text-align: center;
+	}
+}
+.t1315 {
+	height: 50px;
+	top: -43px;
+	left: 0;
+	background: $seal;
+	color: rgba(0,0,0,0.5);
+	border-radius: 50%;
+	height: initial;
+	padding: 30px 0px;
+	.circleTank {
+		position: initial;	
+		text-align: center;
+	}
+}
+/******************900 LINE***********************/
+.line900 {	
+	margin: 90px auto 0;
+	position: relative;
+	height: 500px;
+	width: 90%;
+	max-width: 500px;
+	.tankSquare {
+		width: 150px;
+		left: calc(50% - 75px);
+	}
+	a {
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 0.6em;
+	}
+}
+.t901 {
+	height: 45px;
+	top: -65px;
+	background: $cleanerOrganic;
+}
+.t902 {
+	height: 45px;
+	top: -20px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t903 {
+	height: 45px;
+	top: 25px;
+	background: $cleanerInorganic;
+}
+.t904 {
+	height: 45px;
+	top: 70px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t905 {
+	height: 45px;
+	top: 115px;
+	background: $desmut;
+	color: black;
+}
+.t906 {
+	height: 45px;
+	top: 160px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t907 {
+	height: 45px;
+	top: 205px;
+	background: $chromate;
+	color: white;
+}
+.t908 {
+	height: 45px;
+	top: 250px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t909 {
+	height: 45px;
+	top: 295px;
+	background: $chromate;
+}
+.t910 {
+	height: 45px;
+	top: 340px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t911 {
+	height: 45px;
+	top: 385px;
+	background: $rinse;
+	border: 1.5px solid tomato;
+	color: rgba(0,0,0,0.5);
+}
+
+/******************800 LINE***********************/
+.line800 {	
+	margin: 90px auto 0;
+	position: relative;
+	height: 500px;
+	width: 90%;
+	max-width: 500px;
+	.tankSquare {
+		width: 150px;
+		left: calc(50% - 75px);
+	}
+	a {
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 0.6em;
+	}
+}
+.t801 {
+	height: 70px;
+	top: -65px;
+	background: $cleanerOrganic;
+}
+.t802 {
+	height: 70px;
+	top: 5px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t803 {
+	height: 70px;
+	top: 75px;
+	background: $conditioner;
+	color: black;
+}
+.t804 {
+	height: 70px;
+	top: 145px;
+	background: $phosphate;
+	color: black;
+}
+.t805 {
+	height: 70px;
+	top: 215px;
+	background: $phosphate;
+	color: black;
+}
+.t806 {
+	height: 70px;
+	top: 285px;
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t807 {
+	height: 70px;
+	top: 355px;
+	background: $rp;
+	color: white;
+}
+
+/******************2500 LINE***********************/
+.line2500 {	
+	margin: 90px auto 0;
+	position: relative;
+	height: 500px;
+	width: 90%;
+	max-width: 500px;
+	.tankSquare {
+		width: 70px;
+	}
+	a {
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 0.6em;
+	}
+}
+.t2501 {
+	height: 50px;
+	top: -15px;
+	right: calc(50% - 155px);
+	background: $cleanerOrganic;
+}
+.t2502 {
+	height: 50px;
+	top: 35px;
+	right: calc(50% - 155px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2503 {
+	height: 50px;
+	top: 85px;
+	right: calc(50% - 155px);
+	background: $cleanerOrganic;
+}
+.t2504 {
+	height: 50px;
+	top: 135px;
+	right: calc(50% - 155px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2505 {
+	height: 50px;
+	top: 185px;
+	right: calc(50% - 155px);
+	background: $cleanerInorganic;
+}
+.t2506 {
+	height: 50px;
+	top: 235px;
+	right: calc(50% - 155px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2507 {
+	height: 50px;
+	top: 285px;
+	right: calc(50% - 155px);
+	background: $nickel-strike;
+}
+.t2508 {
+	height: 50px;
+	top: 335px;
+	right: calc(50% - 155px);
+	background: $rinse;
+	width: 100%;
+	color: rgba(0,0,0,0.5);
+}
+.t2509 {
+	height: 50px;
+	top: 385px;
+	right: calc(50% - 155px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2510 {
+	height: 65px;
+	top: 370px;
+	left: calc(50% - 35px);
+	background: $electroPlating;
+}
+.t2511 {
+	height: 50px;
+	top: 320px;
+	left: calc(50% - 35px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2512 {
+	height: 50px;
+	top: 270px;
+	left: calc(50% - 35px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2513 {
+	height: 50px;
+	top: 185px;
+	left: calc(50% - 35px);
+	background: $passivate;
+}
+.t2514 {
+	height: 50px;
+	top: 135px;
+	left: calc(50% - 35px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2515 {
+	height: 50px;
+	top: 85px;
+	left: calc(50% - 35px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2516 {
+	height: 50px;
+	top: 35px;
+	left: calc(50% - 35px);
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t2517 {
+	height: 50px;
+	top: -15px;
+	left: calc(50% - 35px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2518 {
+	height: 50px;
+	top: -65px;
+	left: calc(50% - 35px);
+	background: $chromate;
+}
+.t2519 {
+	height: 50px;
+	top: 285px;
+	left: calc(50% - 155px);
+	background: $passivate;
+}
+.t2520 {
+	height: 50px;
+	top: 235px;
+	left: calc(50% - 155px);
+	background: $rinse;
+	color: rgba(0,0,0,0.5);
+}
+.t2521 {
+	height: 50px;
+	top: 185px;
+	left: calc(50% - 155px);
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t2522 {
+	height: 50px;
+	top: 135px;
+	left: calc(50% - 155px);
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.t2523 {
+	height: 50px;
+	top: 85px;
+	left: calc(50% - 155px);
+	background: $non-use;
+	color: rgba(0,0,0,0.5);
+}
+.hotWater {
+		color: tomato;
+		font-weight: bold;
+}
+.line {
+	width: 45px;
+	height: 40px;
+	line-height: 20px;
+	border-radius: 50%;
+	border: 2px solid black;
+	position: absolute;
+	padding: 10px;
+	right: 10px;
+	bottom: 10px;
+	text-align: center;
+	font-size: .75em;
+	cursor: pointer;
+	z-index: 1000;
+}
+.backToTank {
+	cursor: pointer;
+}
+	
