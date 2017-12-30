@@ -53,12 +53,13 @@ function get_table_list($column, $table) {
 
 //Returns array of application_id's OR Exception message from applications table given a process name
 function get_applications_from_process($process_name) {
+	$name = 'Alkaline Zinc-Rack';
 	//Connect to tmfc_db and store result in variable
 	$conn = connect_to_db();
 
 	//Get a list of all process names 
 	//create/execute query and assign results to variable
-	$result = $conn->query('SELECT applications.application_type FROM applications,process_names WHERE process_names.process_name="' . $process_name . '" AND process_names.application_id = applications.application_id');
+	$result = $conn->query('SELECT application_type FROM applications WHERE application_id IN (SELECT application_id FROM process_association WHERE process_id IN (SELECT process_id FROM processes WHERE process_name ="'.$process_name.'"))');
 	//Throw error message if no results returned
 	if(!$result) {
 		throw new Exception('There was a problem getting application names');
@@ -76,6 +77,29 @@ function get_applications_from_process($process_name) {
 	return $applicationNames_array;
 }
 
+function get_tank_num_from_process($process_name) {
+	//Connect to tmfc_db and store result in variable
+	$conn = connect_to_db();
+
+	//Get a list of all process names 
+	//create/execute query and assign results to variable
+	$result = $conn->query('SELECT application_type FROM applications WHERE application_id IN (SELECT application_id FROM process_association WHERE process_id IN (SELECT process_id FROM processes WHERE process_name ="'.$process_name.'"))');
+	//Throw error message if no results returned
+	if(!$result) {
+		throw new Exception('There was a problem getting application names');
+	}
+	
+	$applicationNames_array = array();
+	//check if there was any results
+	if($result->num_rows>0) {
+		//cycle over results and assign values to $processNames_array
+		while($row = $result->fetch_row()) {
+			$applicationNames_array[] = $row[0];
+		}
+	}
+	
+	return $applicationNames_array;
+}
 
 //Returns list of tank numbers given a line number
 function get_tank_numbers($lineNumber) {

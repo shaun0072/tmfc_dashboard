@@ -1,0 +1,19 @@
+
+
+.comp_btn_cntr {
+	flex-basis: 100%;
+}
+.conc_list {
+	margin: 0 auto;
+	
+	li {
+		display: inline-block;
+		padding: 0 10px;
+		cursor: pointer;
+		color: $offwhite;
+		
+		&:hover {
+			color: white;
+		}
+	}
+}

@@ -1,3 +1,77 @@
+var process_obj;
+function add_processes(obj) {
+	for(var key in obj) {
+		var list_item = '<li class="process_list_item" onclick="get_apps(this)">' + key +'</li>' ;
+		$('.nav_cntr .process_list').append(list_item);
+	}
+}
+  
+function update_proc_obj() {
+
+	$.ajax({
+		url:"update_current_processes_handler.php",
+		method:"POST",
+		dataType: 'json',   
+		success: function(proc_obj)
+		{
+			process_obj = proc_obj;
+			add_processes(proc_obj);
+		}
+	   });
+}
+update_proc_obj();
+
+$('.tools_item').hover(function() {
+//Hovering IN
+	$(this).children('.tools_dropdown').stop().slideToggle('1');
+	//The non-hovered tool items
+	$('.tools_item').each(function() {$(this).find('.tool_option').css({fill:'#c3c6c9'})});
+	$('.tools_item').each(function() {$(this).children('p').css({color:'#dee0e2'})})
+	//the hovered tool items
+	$(this).find('.tool_option').css({
+		fill: 'black'
+	});
+	$(this).children('p').css({
+		color: 'black'
+	});
+}, function() {
+//Hovering OUT
+	$(this).children('.tools_dropdown').stop().slideToggle('0');
+	$('.tools_item').each(function() {$(this).find('.tool_option').css({fill : 'rgb(107, 119, 131)'})})
+	$('.tools_item').each(function() {$(this).children('p').css({color : 'rgb(107, 119, 131)'})})
+})
+
+
+
+
+function get_apps(process_item) {
+	
+	var process = $(process_item).text();
+	
+	$('.applications_tab').stop().show();
+	
+	$('.application_list').empty();
+	
+	for(var key in process_obj[process]) {
+		var an = process_obj[process][key]['application_name'];
+		var tn = process_obj[process][key]['tank_number'][0];
+		var list_item = '<li><span class="tank_num">'+tn+'</span> <span class="application">' + an + '</span></li>';
+		
+		$('.application_list').append(list_item);	
+	}
+
+	$(function() {
+		$('.application_list li').each(function(i, e) {
+			$(this).delay( i * 30).animate({
+				marginLeft: "0", 
+				"opacity" : 1
+			});
+		})
+	}) 
+}
+
+
+
 //Shows hidden input field if <select> value = "new_input"
 function showInput(sel) {
 	var displayValue;
@@ -301,3 +375,5 @@ function setTankSelOpt(sel) {
 		(initiation_date == "") ? $('label[for="initiation_date"]').css("color", "red") : false;
 	}
 }); */
+
+

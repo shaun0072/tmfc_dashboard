@@ -1,0 +1,29 @@
+.line_cntr  {
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 30px 20px;
+	
+	div {
+		background: rgba(99, 98, 98, 1);
+		flex-basis: 10%;
+		transition: all 0.1s;
+		margin: 2px;
+		font-size: 10px;
+		text-align: center;
+		height: 40px;
+		
+		&:hover {
+			background: rgba(163, 78, 78, 0.8);
+			transform: scale(1.1);
+		}
+	}
+	
+	.tank6 {
+		background: rgba(163, 78, 78, 0.8);
+		transform: scale(1.1);
+	}
+}
+
+	

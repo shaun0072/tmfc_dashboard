@@ -1,34 +1,23 @@
 /**********Colors************/
-$accentColor         : #EE524B;
-$cleanerOrganic      : rgba(186, 63, 29, 0.8);
-$cleanerInorganic    : rgba(112, 163, 127, 0.8);
-$electroPlating      : rgba(244,211,94, 0.8);
-$electrolessPlating  : purple;
-$rinse               : rgba(135,206,250,0.5);
-$chromate            : rgba(1, 23, 47, 0.8);
-$rp					 : rgba(1, 23, 47, 0.8);
-$seal                : rgba(219,216,179, 0.8);
-$sourDip             : white;
-$conditioner 		 : white;
-$desmut				 : rgba(219,216,179, 0.8);
-$phosphate			 : rgba(219,216,179, 0.8);
-$nickel-strike 		 : purple;
-$passivate			 : rgba(219,216,179, 0.8);
-$non-use             : rgba(210, 210, 210,0.7);
+$offwhite : #c7cbd2;
+$widget2_bg: #199F86;
+$widget_bg: #292C31;
 
 
 
 
 
 /**********Typography************/
-$baseFont      :  'Noto Sans', sans-serif;
-$specialty-font : 'Lato', sans-serif;
-$thin           :  100;
-$thick			:  700;
-$lg-font        : 2.5em;
-$md-font        : 1.2em;
-$sm-font        : 1em;
-$mini-font      : .7em;
+$user_name: 'Source Sans Pro', sans-serif;
+$navigation : 'Quicksand', sans-serif;
+$title_describes : 'Nunito', sans-serif;
+$titles : 'Quicksand', sans-serif;
+$tools : 'Source Sans Pro', sans-serif;
+$main :  'Quicksand', sans-serif;
+
+/**********Layout************/
+$left_bar_width : 230px;
+$top_bar_height: 95px;
 
 /**********Mixins************/
 

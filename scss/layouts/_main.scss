@@ -1,0 +1,131 @@
+#main {
+	width: 100%;
+	height: 100%;
+	padding: calc(#{$top_bar_height} + 20px) 0 0 calc(#{$left_bar_width} + 30px);
+	background:  #D9DDE0; /*lighten(#292C31, 15%);*/ 
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+
+.widget {
+	display: inline-block;
+	height: 200px;
+	color: white;
+	text-align: center;
+	font-family: $main;
+	font-size: 14px;
+	font-weight: 100;
+	padding: 13px 0;
+	
+	.inside {
+		height: 100%;
+		padding: 10px 20px;
+		margin: 0 15px;
+		border-radius: 3px;
+	}
+	
+	h5 {
+		text-align: left;
+		font-size: 13px;
+		font-weight: 700;
+		margin: 0;
+	}
+	
+	.tank_info_list {
+		padding-top: 15px;
+	}
+	
+	li {
+		padding: 2px 0;
+		font-size: 14px;
+	}
+	
+	
+	
+}
+
+.notes {
+	flex-basis: 45%;
+	
+	.inside {
+		background: #292C31;
+	}
+}
+
+.tank_info {
+	flex-basis: 30%;
+	
+	.inside {
+		background: #292C31;
+	}
+}
+
+.makeup {
+	flex-basis: 25%;
+	
+	.inside {
+		background: #292C31;
+	}
+}
+
+.application_param {
+	flex-basis: 55%;
+	height: 400px;
+	max-width: 55%;
+		
+	.inside {
+		background: #292C31;
+	}
+}
+
+.lab_analysis{
+	flex-basis: 45%;
+	height: 400px;
+	max-width: 45%;
+		
+	.inside {
+		background: #292C31;
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 100%;
+		
+		h5 {
+			flex-basis: 100%;
+		}
+		
+		.chart_cntr {
+			flex-basis: 100%;
+			align-self: flex-end;
+			padding-bottom: 25px;
+			padding: 0 40px;
+			max-width: 100%;
+			height: 230px;
+		}
+		
+		.conc_list {
+			flex-basis: 100%;
+		}
+	}
+}
+
+.additions_log {
+	flex-basis: 50%;
+	height: 350px;
+		
+	.inside {
+		background: #292C31;
+	}
+}
+
+.temp-pH_log {
+	flex-basis: 50%;
+	height: 350px;
+		
+	.inside {
+		background: #292C31;
+	}
+}
+
+

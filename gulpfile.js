@@ -17,19 +17,8 @@ var gulp         = require('gulp'),
 
 gulp.task("concatScripts", function() {
     return gulp.src([
-        'js/jquery-2.1.4.min.js',
-		'js/moment.js',
-		'js/utils.js',
-		'js/Chart.bundle.min.js',
-		'js/location.js',
-		'js/data.js',
-		'js/tankHTMLGenerator.js',
-		'js/slide-toggle.js',
-		'js/chartGenerator.js',
-		'js/addTableGenerator.js',
-		'js/myModal.js',
-		'js/tempPhGenerator.js',
-		'js/dataEntry.js'])
+		'functions.js'
+	])
     .pipe(maps.init())
     .pipe(concat('app.js'))
     .pipe(maps.write('./'))

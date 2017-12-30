@@ -1,0 +1,134 @@
+#left_bar {
+	position: fixed;
+	width: $left_bar_width;
+	height: 100%;
+	background: #292C31;
+	z-index: 200;
+}
+
+.logo_cntr {
+	padding: 0 ;
+	
+	.logo {
+		font-family: 'Revalia', cursive;
+		font-size: 40px;
+		text-align: center;
+		color: rgb(158, 30, 30);
+		letter-spacing: -4px;
+		margin: 17px 0 0;
+	}
+	
+	.m {
+		color: black;
+		transform: translate(-2px, 9px);
+		display: inline-block;
+	}
+}
+
+.user_info_cntr {
+	font-family: $user_name;
+	margin: 65px auto 0;
+	
+	.user_pic_cntr {
+		width: 35%;
+		margin: 0 auto;
+	}
+	
+	img {
+		border-radius: 50%;
+	}
+	
+	.name {
+		margin-top: 5px;
+		color: $offwhite;
+		font-size: 13px;
+		font-weight: 400;
+		text-align: center;
+		letter-spacing: 0.8px;
+	}
+}
+
+.nav_cntr {
+	color: $offwhite;
+	font-family: $navigation;
+	padding: 45px 0 0 7px;
+	
+	h4 {
+		font-size: 16px;
+		padding: 3px 0 3px 9px;
+		margin: 5px 0;
+		letter-spacing: 1.2px;
+	}
+	
+	.applications_tab {
+		display: none;
+		color: #e3be42;
+		
+		svg {
+			fill: #e3be42;
+		}
+	}
+	
+	.process_list,
+	.application_list {
+		padding-left: 45px;
+	}
+	
+	li {
+		padding: 2.5px 0;
+		font-size: 14px;
+		font-weight: 400;
+		cursor: pointer;
+	}
+	
+	.process_list_item {
+		
+		&:hover {
+			background: darken(#292C31, 5%);
+			border-right: 3px solid red;
+		}
+	}
+	
+	.tank_num {
+		color: #b72c2c;
+		font-size: 10px;
+		font-weight: bold;
+		display: inline-block;
+		width: 22px;
+		text-align: left;
+	}
+	
+	svg {
+		width: 20px;
+		height: 20px;
+		fill: #c7cbd2;
+		display: inline;
+		margin: 0 5px -3px 0;
+	}
+	
+	.process_svg {
+		width: 14px;
+		height: 14px;
+		margin: 0 8px 0px 0;
+	}
+}
+
+.application_list {
+	li {
+		cursor: pointer;
+		border-radius: 2px;
+		font-size: 13px;
+		margin-left: -180px;
+		opacity: 0;
+		
+		&:hover {
+			background: darken(#292C31, 5%);
+			border-right: 3px solid $widget2_bg;
+		}
+	}
+	
+	li.anim {
+		margin-left: 0;
+	}
+} 
+

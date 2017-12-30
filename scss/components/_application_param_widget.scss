@@ -1,0 +1,22 @@
+table {
+	margin: 25px auto 0;
+	width: 90%;
+}
+
+th,
+td {
+	padding: 8px;
+}
+
+
+.first_col span {
+	background: green;
+	width: 40px;
+	display: inline-block;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+td {
+	font-size: 13px;
+}
