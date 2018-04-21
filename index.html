@@ -11,10 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-	
-	
-	
-		<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">  
+
+		<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
 		 <symbol id="main_icon" viewBox="0 0 482.562 482.562">
 			<title>Main Icon</title>
 			<g>
@@ -322,17 +320,11 @@
 				c-15.03,0-27.257,12.228-27.257,27.257c0,15.03,12.227,27.257,27.257,27.257c15.03,0,27.257-12.227,27.257-27.257
 				C323.875,234.024,311.648,221.795,296.618,221.795L296.618,221.795z"/>
 		  </symbol>
-		</svg>	
-		
-		
-		
+		</svg>
+
+
 		<section id="top_bar">
-			<div class="dashboard_info_cntr">
-				<h1><span class="title">Conditioner</span></h1>
-				<h3><span class="info_title_describe">Process:</span> <span class="info_title">Manganese Phosphate</span></h3>
-				<h3><span class="info_title_describe">Tank Number:</span> <span class="info_title">803</span></h3>
-			</div>
-			
+			<div class="dashboard_info_cntr"></div>
 			<div class="tools_outside_cntr">
 				<div class="tools_inside_cntr">
 					<ul class="tool_list">
@@ -351,7 +343,7 @@
 									</li>
 								</ul>
 							</div>
-						</li>	
+						</li>
 						<li class="tools_item">
 							<div class="svg_cntr"><svg class="tool_option"><use xlink:href="#data_entry_icon"></use></svg></div>
 							<p>Data Entry</p>
@@ -396,22 +388,20 @@
 				</div>
 			</div>
 		</section>
-		
-		
+
+
 
 		<section id="left_bar">
 			<div class="logo_cntr">
 				<p class="logo">T<span class="m">M</span>F</p>
 			</div>
-			
 			<div class="user_info_cntr">
 				<div class="user_pic_cntr"><img src="assets/img/user_pic.JPG" alt="User Profile Picture"/></div>
 				<p class="name">Shaun Russell</p>
 			</div>
-			
 			<div class="nav_cntr">
 				<ul class="nav_list">
-					<li class="nav_list_item">
+					<li class="nav_list_item main">
 						<h4><svg><use xlink:href="#main_icon"></use></svg>Main</h4>
 					</li>
 					<li class="nav_list_item">
@@ -425,17 +415,17 @@
 				</ul>
 			</div>
 		</section>
-		
-	
-		
+
+
+
 		<section id="main">
-		
+
 			<div class="widget notes">
 				<div class="inside">
 					<h5>Notes</h5>
 				</div>
 			</div>
-			
+
 			<div class="widget tank_info">
 				<div class="inside">
 					<h5>Tank #: 803</h5>
@@ -447,64 +437,21 @@
 					</ul>
 				</div>
 			</div>
-			
+
 			<div class="widget makeup">
 				<div class="inside">
 					<h5>Days Since Makeup</h5>
 					<p class="days_since_makup">150</p>
 				</div>
 			</div>
-			
-			<div class="widget application_param">		
+
+			<div class="application_param widget">
 				<div class="inside">
 					<h5>Contorl Parameters</h5>
-					<table>
-					  <tr>
-						<th></th>
-						<th>Latest</th> 
-						<th>Optimum</th>
-						<th>TMF Range</th>
-						<th>TDS Range</th>
-					  </tr>
-					  <tr>
-						<td class="row_header">Temperature (°F)</td>
-						<td class="first_col"><span>160</span></td> 
-						<td>160</td>
-						<td>160 - 190</td>
-						<td>160 - 190</td>
-					  </tr>
-					  <tr>
-						<td class="row_header">pH</td>
-						<td class="first_col"><span>2.2</span></td> 
-						<td>2.0</td>
-						<td>1.8 - 2.4</td>
-						<td>1.5 - 2.5</td>
-					  </tr>
-					  <tr>
-						<td class="row_header">Total Acid (opg)</td>
-						<td class="first_col"><span style="background:red;">12.0</span></td> 
-						<td>12.0</td>
-						<td>11.0 - 12.0</td>
-						<td>11.0 - 12.0</td>
-					  </tr>
-					   <tr>
-						<td class="row_header">Free Acid (%)</td>
-						<td class="first_col"><span>2.0</span></td> 
-						<td>2.0</td>
-						<td>2.0 - 3.0</td>
-						<td>2.0 - 3.0</td>
-					  </tr>
-					   <tr>
-						<td class="row_header">Iron (ppm)</td>
-						<td class="first_col"><span>3.0</span></td> 
-						<td>2.9</td>
-						<td>2.0 - 3.0</td>
-						<td>&#60; 3.0</td>
-					  </tr>
-					</table>
+					<table id="cp_table"></table>
 				</div>
 			</div>
-			
+
 			<div class="widget lab_analysis">
 				<div class="inside">
 					<h5>Analysis</h5>
@@ -516,12 +463,12 @@
 							<li>Carb</li>
 							<li>Fe</li>
 							<li>Cr</li>
-							<li>Cu</li>		
+							<li>Cu</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="widget additions_log">
 				<div class="inside">
 					<h5>Additions</h5>
@@ -570,7 +517,7 @@
 					</table>
 				</div>
 			</div>
-			
+
 			<div class="widget temp-pH_log">
 				<div class="inside">
 					<h5>Temp/pH</h5>
@@ -613,17 +560,21 @@
 					</table>
 				</div>
 			</div>
-			
 
-			
-			
+
 		</section>
-		
+
+
+
+
+		<div id="overlay"></div>
+
 	<script src="jquery-2.1.4.min.js"></script>
+	<script src="node_modules/moment/moment.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="functions.js"></script>
 	<script>
-	$(function () { 
+	$(function () {
     var myChart = Highcharts.chart('chart_cntr', {
         chart: {
             type: 'spline',
@@ -672,6 +623,6 @@
     });
 });
 	</script>
-	
+
 	</body>
 </html>

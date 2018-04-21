@@ -1,9 +1,3 @@
-/*
-ALL TEMPERATURES IN°F
-tanks.length/width/depth - Convert to inches with PHP
-tanks.total_capacity and tanks.freeboard_capacity - Record gallons
-additions_log.addition_amount - Convert everyting to mls or grams in PHP and remove floating point e.g. 5 gal = 18927 mls OR 50 lbs = 453 grams
-*/
 CREATE TABLE users (
 	username VARCHAR(16) NOT NULL PRIMARY KEY,
 	passwd CHAR(40) NOT NULL,
@@ -68,7 +62,7 @@ CREATE TABLE line_numbers (
 
 CREATE TABLE processes (
 	process_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	process_name VARCHAR(50) NOT NULL, 
+	process_name VARCHAR(50) NOT NULL,
 	initiation_date  INT(11) UNSIGNED NOT NULL,
 	removal_date  INT(11) UNSIGNED,
 	username VARCHAR(16) NOT NULL
@@ -90,16 +84,19 @@ CREATE TABLE makeups (
 	username VARCHAR(16) NOT NULL
 );
 
-CREATE TABLE components (
-	component_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE controlled_properties (
+	property_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	application_id INT(10) UNSIGNED NOT NULL,
-	component_name VARCHAR(50) NOT NULL,
-	component_unit VARCHAR(30),
-	tmfc_concentration_optimum FLOAT(8,4) UNSIGNED,
-	tmfc_concentration_min FLOAT(8,4) UNSIGNED,
-	tmfc_concentration_max FLOAT(8,4) UNSIGNED,
-	tds_concentration_min FLOAT(8,4) UNSIGNED,
-	tds_concentration_max FLOAT(8,4) UNSIGNED,
+	property_name VARCHAR(50) NOT NULL,
+	property_symbol VARCHAR(10) NOT NULL,
+	property_unit VARCHAR(30),
+	decimal_accuracy TINYINT(4) UNSIGNED,
+	procedure_id INT(10) UNSIGNED,
+	tmf_optimum FLOAT(8,4) UNSIGNED,
+	tmf_min FLOAT(8,4) UNSIGNED,
+	tmf_max FLOAT(8,4) UNSIGNED,
+	tds_min FLOAT(8,4) UNSIGNED,
+	tds_max FLOAT(8,4) UNSIGNED,
 	username VARCHAR(16) NOT NULL
 );
 
@@ -116,22 +113,25 @@ CREATE TABLE proprietary_chemicals (
 	username VARCHAR(16) NOT NULL
 );
 
-CREATE TABLE test_procedures (
-	test_procedure_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	test_procedure VARCHAR(50),
-	lab_name VARCHAR(60),
-	lab_location VARCHAR(100),
+CREATE TABLE test_results (
+	test_result_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	property_id INT(10) UNSIGNED NOT NULL,
+	test_result_dt INT(11) UNSIGNED NOT NULL,
+	lab_id INT(10) UNSIGNED NOT NULL,
+	test_result_number FLOAT(8,4) UNSIGNED NOT NULL,
 	username VARCHAR(16) NOT NULL
 );
 
-CREATE TABLE test_results (
-	test_result_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	application_id INT(10) UNSIGNED NOT NULL,
-	test_result_dt INT(11) UNSIGNED NOT NULL,
-	procedure_id INT(10) UNSIGNED NOT NULL,
-	test_result_number FLOAT(8,4) UNSIGNED NOT NULL,
-	test_result_unit VARCHAR(30) NOT NULL,
+CREATE TABLE test_procedures (
+	test_procedure_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	test_procedure VARCHAR(50),
 	username VARCHAR(16) NOT NULL
+);
+
+CREATE TABLE labs (
+	lab_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	lab_name VARCHAR(60),
+	lab_location VARCHAR(100)
 );
 
 CREATE TABLE temperature_log (
@@ -162,5 +162,5 @@ CREATE TABLE additions_log (
 
 CREATE TABLE current_use (
 	order_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	
+
 );

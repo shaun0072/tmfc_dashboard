@@ -98,26 +98,27 @@
 
 
 
-<!-- components table-->
-<h2>Component Parameters <span style="font-size:14px;">(defined as application components with specified parameters whether testable or not - does not include muti-component proprietary chemicals but might inlcude a proprietary chemical if that chemical has a particular range of concentration)</span></h2>
+<!-- controlled properties table-->
+<h2>Controlled Properties <span style="font-size:14px;">(defined as an application charactertistic such as components(Zinc, Caustic, iron, free acid, carbonates etc...), states(Saturation, activity) or chemical ratios(Caustic to Zinc, Aluminum to ND-68, Hypo to Nickel) with a desired parameter whether testable or not - does not include muti-component proprietary chemicals but might inlcude a proprietary chemical if that chemical has a particular range of concentration)</span></h2>
 
-<button class="addComponent">Add Component</button><br />
-<div class="component_section">		
-	<div class="componenet_inputs">	
-		<label for="component_name-0">Component Name: </label><input type="text" name="component_name[0]" id="component_name" /><br />
-		<label for="component_unit-0">Component Unit: </label>
-		<select id="component_unit-0" onchange="showInput(this)"  name="selcomponent_unit[0]">
+<button class="addProperty">Add Property</button><br />
+<div class="property_section">		
+	<div class="property_inputs">	
+		<label for="property_name-0">Property Name: </label><input type="text" name="property_name[0]" id="property_name" /><br />
+		<label for="property_unit-0">Property Unit: </label>
+		<select id="property_unit-0" onchange="showInput(this)"  name="selproperty_unit[0]">
 			<option value="">Select</option>
 			<option value="new_input">New Unit Type</option>
-			<?php echo to_option_tags(get_table_list('component_unit', 'components')) ?>
+			<?php echo to_option_tags(get_table_list('property_unit', 'controlled_properties')) ?>
 		</select>
-		<input type="text" name="inputcomponent_unit[0]" data="component_unit-0" hidden /><br />
+		<input type="text" name="inputproperty_unit[0]" data="property_unit-0" hidden /><br />
 		
-		<label for="tmfc_concentration_optimum">TMFC Optimum Concentration: </label><input type="number" name="tmfc_concentration_optimum[0]" id="tmfc_concentration_optimum-0"><br />
-		<label for="tmfc_concentration_min-0">TMFC Minimum Concentration: </label><input type="number" name="tmfc_concentration_min[0]" id="tmfc_concentration_min-0"><br />
-		<label for="tmfc_concentration_max-0">TMFC Maximum Concentration: </label><input type="number" name="tmfc_concentration_max[0]" id="tmfc_concentration_max-0"><br />
-		<label for="tds_concentration_min-0">TDS Minimum Concentration: </label><input type="number" name="tds_concentration_min[0]" id="tds_concentration_min-0"><br />
-		<label for="tds_concentration_max-0">TDS Maximum Concentration: </label><input type="number" name="tds_concentration_max[0]" id="tds_concentration_max-0"><br />
+		<label for="test_procedure-0">Analytical Procedure</label><input type="text" name="test_procedure_file[0]" id="test_procedure-0"/>
+		<label for="tmf_optimum-0">TMFC Optimum Level: </label><input type="number" name="tmf_optimum[0]" id="tmf_optimum-0"><br />
+		<label for="tmf_min-0">TMFC Minimum Level: </label><input type="number" name="tmf_min[0]" id="tmf_min-0"><br />
+		<label for="tmf_max-0">TMFC Maximum Level: </label><input type="number" name="tmf_max[0]" id="tmf_max-0"><br />
+		<label for="tds_min-0">TDS Minimum Level: </label><input type="number" name="tds_min[0]" id="tds_min-0"><br />
+		<label for="tds_max-0">TDS Maximum Level: </label><input type="number" name="tds_max[0]" id="tds_max-0"><br />
 	</div>
 </div>
 

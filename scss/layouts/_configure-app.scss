@@ -1,0 +1,15 @@
+.property,
+.pro_chemical {
+	border: 1px solid black;
+	margin: 10px;
+	position: relative;
+	max-width: 50%;
+}
+
+.property .close,
+.pro_chemical .close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 3px;
+}

@@ -1,3 +1,91 @@
+
+#overlay {
+	display: none;
+	font-family: $navigation;
+	position: fixed;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(0,0,0,0.7);
+	top:0;
+	left: 0;
+	z-index: 1000;
+
+	.add_tr_form {
+		display: inline-block;
+		margin: 15% auto 0;
+		background: white;
+		color: black;
+		padding: 0 30px 30px 25px;
+	}
+
+	.tr_property {
+		text-align: center;
+		margin: 20px;
+		font-size: 25px;
+		font-weight: bold
+	}
+
+	input[type="number"],
+	input[type="text"],
+	input[type="date"],
+	input[type="time"],
+	select {
+		padding: 10px 010px 10px;
+		border-radius: 5px;
+		box-shadow: none;
+		outline: none;
+		border-image: none;
+		border: 1px solid grey;
+		margin: 5px;
+		appearance: textfield;
+		-webkit-appearance: none;
+		font-size: 20px;
+		height: 52px;
+	}
+
+	select {
+		appearance: menulist;
+		-webkit-appearance: menulist;
+	}
+
+
+	input::-webkit-inner-spin-button,
+	input::-webkit-outer-spin-button,
+	input:hover::-webkit-inner-spin-button,
+	input:hover::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		 margin: 0;
+	}
+
+	.reading {
+		width: 75px;
+	}
+
+
+	.submit {
+		display: block;
+		margin: 50px auto 0;
+		width: 100%;
+		background:  lighten(green, 5%);
+		border: 1px solid black;
+		padding: 12px;
+		cursor: pointer;
+		transition: all 0.2s;
+		border-radius: 5px;
+		font-size: 22px;
+		color: white;
+
+		&:hover {
+			background: green;
+		}
+	}
+}
+
+
+
+
 table {
 	margin: 25px auto 0;
 	width: 90%;
@@ -10,7 +98,6 @@ td {
 
 
 .first_col span {
-	background: green;
 	width: 40px;
 	display: inline-block;
 	border-radius: 5px;
@@ -19,4 +106,15 @@ td {
 
 td {
 	font-size: 13px;
+}
+.add_tr {
+	cursor: pointer;
+}
+
+.green_bg {
+	background: green;
+}
+
+.red_bg {
+	background: red;
 }

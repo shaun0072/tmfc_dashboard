@@ -17,7 +17,8 @@ var gulp         = require('gulp'),
 
 gulp.task("concatScripts", function() {
     return gulp.src([
-		'functions.js'
+    'node_modules/moment/moment.js',
+    'functions.js',
 	])
     .pipe(maps.init())
     .pipe(concat('app.js'))

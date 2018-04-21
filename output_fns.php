@@ -5,8 +5,14 @@ function do_html_header() {
 	<html>
 		<head>
 			<meta charset="utf-8" />
+			<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"><!-- main -->
+			<link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet"><!--  logo -->
+			<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="css/style.css">
 			<style>
-				.componenet_inputs, 
+				.property_inputs, 
 				.proprietary_chemical_inputs {
 					border: 1px solid black;
 				}

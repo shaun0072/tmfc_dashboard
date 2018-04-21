@@ -30,12 +30,11 @@
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			$pn = $row['process_name'];
-			$id = "a_" . $row['application_id'];
+			$id = $row['application_id'];
 			$at = $row['application_type'];
 			$tn = $row['tank_number'];
 			
-			$proc_obj[$pn][$id]['application_name'] = $at;
-			$proc_obj[$pn][$id]['tank_number'][] = $tn;
+			$proc_obj[$pn][] = ["app_id"=>$id, "application_name"=>$at, "tank_number"=>[$tn]];
 		}
 	}
 	

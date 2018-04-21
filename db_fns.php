@@ -128,10 +128,9 @@ function get_tank_numbers($lineNumber) {
 function get_process_id($process_name='') {
 	$conn = connect_to_db();
 	 
-	$result= $conn->query('SELECT process_id FROM processes WHERE process_name =' .$process_name);
-	 
-	return $result[0];
+	$result= $conn->query('SELECT process_id FROM processes WHERE process_name ="'.$process_name.'"');
+	$return =  $result->fetch_row();
+	return $return[0];
 }
-
 
 ?>
