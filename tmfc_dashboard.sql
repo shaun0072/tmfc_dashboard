@@ -14,9 +14,9 @@ CREATE TABLE applications (
 	tmfc_temp_max TINYINT UNSIGNED,
 	tds_temp_min TINYINT UNSIGNED,
 	tds_temp_max TINYINT UNSIGNED,
-	tmf_pH_optimum DECIMAL(2,2) UNSIGNED,
-	tmf_pH_min DECIMAL(4,2) UNSIGNED,
-	tmf_pH_max DECIMAL(4,2) UNSIGNED,
+	tmfc_pH_optimum DECIMAL(2,2) UNSIGNED,
+	tmfc_pH_min DECIMAL(4,2) UNSIGNED,
+	tmfc_pH_max DECIMAL(4,2) UNSIGNED,
 	tds_pH_min DECIMAL(4,2) UNSIGNED,
 	tds_pH_max DECIMAL(4,2) UNSIGNED,
 	agitation VARCHAR(40),
@@ -158,9 +158,4 @@ CREATE TABLE additions_log (
 	addition_amount INT(11) UNSIGNED NOT NULL,
 	addition_unit VARCHAR(30) NOT NULL,
 	username VARCHAR(16) NOT NULL
-);
-
-CREATE TABLE current_use (
-	order_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-
 );

@@ -1,7 +1,6 @@
 {
   "name": "tmfc_dashboard",
   "version": "1.0.0",
-  "description": "",
   "main": "functions.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,20 +8,29 @@
   "author": "Shaun",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^7.2.2",
-    "browser-sync": "^2.18.13",
+    "autoprefixer": "^7.2.6",
+    "browser-sync": "^2.23.7",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-postcss": "^7.0.0",
+    "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-sass": "^3.2.1",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
-    "moment": "^2.20.1"
-  }
+    "moment": "^2.22.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaun0072/tmfc_dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shaun0072/tmfc_dashboard/issues"
+  },
+  "homepage": "https://github.com/shaun0072/tmfc_dashboard#readme",
+  "description": ""
 }

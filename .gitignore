@@ -79,3 +79,6 @@ $RECYCLE.BIN/
 *.lnk
 *.docx
 *.xlsx
+
+# Node
+node_modules/

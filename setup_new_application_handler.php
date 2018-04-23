@@ -67,7 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 	//Prepare stmts
-	$applications_stmt = $conn->prepare("
+	/* Prepared statement, stage 1: prepare */
+	if (!($applications_stmt = $conn->prepare("
 		INSERT INTO applications(
 			application_id,
 			application_name,
@@ -86,7 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			tds_pH_max,
 			username
 		)
-		VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))) {
+	    echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+	}
 	$process_stmt = $conn->prepare('INSERT INTO processes VALUES(?,?,?,?,?)');
 	$process_association_stmt = $conn->prepare('INSERT INTO process_association VALUES(?,?,?,?,?,?)');
 	$tank_entry_stmt = $conn->prepare('INSERT INTO tanks(tank_id, tank_number, counter_flow) VALUES(?,?,?)');
@@ -110,7 +113,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			)
 			VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 	$procedure_stmt = $conn->prepare("INSERT INTO test_procedures VALUES (?,?,?)");
-	$PC_stmt = $conn->prepare("INSERT INTO proprietary_chemicals VALUES (?,?,?,?,?,?,?,?)");
+	if(!($PC_stmt = $conn->prepare("
+		INSERT INTO proprietary_chemicals(
+			proprietary_chemical_id,
+			application_id,
+			chemical_name,
+			vendor,
+			sds,
+			makeup_requirement,
+			makeup_unit,
+			username
+			) VALUES (?,?,?,?,?,?,?,?)"))) {
+		echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+	}
 
 
 
