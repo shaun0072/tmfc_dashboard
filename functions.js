@@ -91,12 +91,10 @@ function update_app_obj(app_id) {
 		method:"POST",
 		dataType: 'json',
 		data: {"app_id": app_id},
-		complete: function(response) {
-		},
 		success: function(application_obj) {
 			app_obj = application_obj;
 			updt_dshbrd_info_cont(app_obj.type, {
-				"Process": app_obj.proc_assoc.map(a => a.name).reduce((tot, cur)=>tot + "/" + cur),
+				"Process": app_obj.proc_assoc.map(function(a) {return a.name}).reduce(function(tot, cur) {return tot + "/" + cur}),
 				"Tank Number": app_obj["tank_assoc"][0]["name"]
 			});
 			update_cp_widget(app_obj);
@@ -201,7 +199,6 @@ function add_tr(submit) {
 			$('#overlay').empty().hide();
 		}
 	   });
-	//show response to user
 }
 function update_cp_table(data) {
   //get all inputs
@@ -209,7 +206,7 @@ function update_cp_table(data) {
 	    colName, inputVal, obj={};
 	obj.changes = {};
 	//assign values from each input
-	$.each(inputs, (k,v)=>{
+	jQuery.each(inputs, function(k,v) {
 		//set n/a and empty string values to null
 		if($(v).val() === "n/a" || $(v).val() === '') {
 			inputVal = -1;
@@ -220,26 +217,25 @@ function update_cp_table(data) {
 
 		obj.changes[colName] = inputVal;
 	})
+
 	obj.conditions = {};
 	obj.conditions = data.conditions;
 	obj.table = data.table;
 
-	console.log(obj);
 	$.ajax({
-	url:"update_fns.php",
-	method:"POST",
-	dataType: 'json',
-	data: obj,
-	complete: function(response) {
-		console.log(response);
-	},
-	success: function() {
-		update_app_obj(app_obj.app_id);
-		update_cp_widget(app_obj);
-		$('#overlay').empty().hide();
-	}
+		url:"update_fns.php",
+		method:"POST",
+		dataType: 'json',
+		data: obj,
+		complete: function(response) {
+			console.log(response);
+		},
+		success: function() {
+			update_app_obj(app_obj.app_id);
+			update_cp_widget(app_obj);
+			$('#overlay').empty().hide();
+		}
 	 });
-
 }
 
 function formatRange(min,max) {
@@ -596,7 +592,7 @@ $(document).on('click', '#cp_table td', function() {
 	formOutput.append(title);
 
 	//build labels and inputs
-	$.each(data["changes"], (change,changeVal) => {
+	$.each(data["changes"], function(change,changeVal) {
   var label = $("<label>",  {
     text: data["changes"][change]["label"]
   });
@@ -607,7 +603,7 @@ $(document).on('click', '#cp_table td', function() {
   });
 
 	//attach label, input to formOutput
-  formOutput.append(label, input)
+  formOutput.append(label, input);
 })
 
 //create submit btn element, attach to formOutput

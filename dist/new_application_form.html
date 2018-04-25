@@ -6,7 +6,7 @@
 
 <!-- process_names table-->
 <h2>Belongs to which process...<span style="font-size:14px;">(An application will belong to a process and will be provided an initiation date, as long as the application remains active in the process the removal date value will be NULL - a list of ACTIVE applications associated with a process may be called provided a date range - when an application is no longer used in a process, a removal date will be issued on the process_names table - a single application may be used in multiple processes)</span></h2>
-	
+
 <button class="addProcess">Add Process</button>
 <div class="process_name_section">
 	<div class="process_name_inputs">
@@ -17,12 +17,12 @@
 			<?php echo to_option_tags(get_table_list('process_name', 'processes')) ?>
 		</select>
 		<input type="text" placeholder="New Process" data="process_name-0" name="inputProcess[0]" hidden />
-		
+
 		<label for="process_initiation-0" style="display:none;" data="process_name-0"><span style="color:red">*</span>Date of process initiation:</label>
 		<input type="date" id="process_initiation-0" name="process_initiation[0]" data="process_name-0" hidden />
-		
+
 		<label for="application_initiation-0"><span style="color:red">*</span>Date of application initiation:</label hidden>
-		<input type="date" data="application_initiation-0" name="application_initiation[0]" />	
+		<input type="date" data="application_initiation-0" name="application_initiation[0]" />
 	</div>
 </div>
 <!-- <button class="addProcess">Add Process</button>-->
@@ -46,25 +46,25 @@
 
 
 <br />
-<label for="tmfc_temp_optimum">TMFC Optimum Temp: </label><input type="number" name="tmfc_temp_optimum" id="tmfc_temp_optimum"><br />
-<label for="tmfc_temp_min">TMFC Minimum Temp: </label><input type="number" name="tmfc_temp_min" id="tmfc_temp_min"><br />
-<label for="tmfc_temp_max">TMFC Maximum Temp: </label><input type="number" name="tmfc_temp_max" id="tmfc_temp_max"><br />
-<label for="tds_temp_min">TDS Minimum Temp: </label><input type="number" name="tds_temp_min" id="tds_temp_min"><br />
-<label for="tds_temp_max">TDS Maximum Temp: </label><input type="number" name="tds_temp_max" id="tds_temp_max"><br />
+<label for="tmfc_temp_optimum">TMFC Optimum Temp: </label><input type="number" name="tmfc_temp_optimum" id="tmfc_temp_optimum" step="0.01"/><br />
+<label for="tmfc_temp_min">TMFC Minimum Temp: </label><input type="number" name="tmfc_temp_min" id="tmfc_temp_min" step="0.01"><br />
+<label for="tmfc_temp_max">TMFC Maximum Temp: </label><input type="number" name="tmfc_temp_max" id="tmfc_temp_max" step="0.01"><br />
+<label for="tds_temp_min">TDS Minimum Temp: </label><input type="number" name="tds_temp_min" id="tds_temp_min" step="0.01"><br />
+<label for="tds_temp_max">TDS Maximum Temp: </label><input type="number" name="tds_temp_max" id="tds_temp_max" step="0.01"><br />
 <br />
 <label for="agitation">Agitation Type: </label>
 <select id="agitation" onchange="showInput(this)" name="selAgitation">
 	<option value="">Select</option>
 	<option value="new_input">New Agitation Type</option>
 	<?php echo to_option_tags(get_table_list('agitation', 'applications')) ?>
-</select>	
+</select>
 <input type="text" id="agitation" data="agitation" name="inputAgitation" hidden><br />
 <br />
 <label for="tmfc_pH_optimum">TMFC Optimum pH: </label><input type="number" name="tmfc_pH_optimum" id="tmfc_pH_optimum" min="0" max="14" step=".01"><br />
-<label for="tmfc_pH_min">TMFC Minimum pH: </label><input type="number" name="tmfc_pH_min" id="tmfc_pH_min"><br />
-<label for="tmfc_pH_max">TMFC Maximum pH: </label><input type="number" name="tmfc_pH_max" id="tmfc_pH_max"><br />
-<label for="tds_pH_min">TDS Minimum pH: </label><input type="number" name="tds_pH_min" id="tds_pH_min"><br />
-<label for="tds_pH_max">TDS Maximum pH: </label><input type="number" name="tds_pH_max" id="tds_pH_max"><br />
+<label for="tmfc_pH_min">TMFC Minimum pH: </label><input type="number" name="tmfc_pH_min" id="tmfc_pH_min" step="0.01"><br />
+<label for="tmfc_pH_max">TMFC Maximum pH: </label><input type="number" name="tmfc_pH_max" id="tmfc_pH_max" step="0.01"><br />
+<label for="tds_pH_min">TDS Minimum pH: </label><input type="number" name="tds_pH_min" id="tds_pH_min" step="0.01"><br />
+<label for="tds_pH_max">TDS Maximum pH: </label><input type="number" name="tds_pH_max" id="tds_pH_max" step="0.01"><br />
 
 
 
@@ -92,7 +92,7 @@
 			<input type="date" name="tank_initiation[0]" id="tank_initiation-0"/>
 		</span>
 	</div>
-</div>		
+</div>
 
 
 
@@ -102,9 +102,10 @@
 <h2>Controlled Properties <span style="font-size:14px;">(defined as an application charactertistic such as components(Zinc, Caustic, iron, free acid, carbonates etc...), states(Saturation, activity) or chemical ratios(Caustic to Zinc, Aluminum to ND-68, Hypo to Nickel) with a desired parameter whether testable or not - does not include muti-component proprietary chemicals but might inlcude a proprietary chemical if that chemical has a particular range of concentration)</span></h2>
 
 <button class="addProperty">Add Property</button><br />
-<div class="property_section">		
-	<div class="property_inputs">	
+<div class="property_section">
+	<div class="property_inputs">
 		<label for="property_name-0">Property Name: </label><input type="text" name="property_name[0]" id="property_name" /><br />
+		<label for="property_symbol-0">Property Symbol: </label><input type="text" name="property_symbol[0]" id="property_symbol" maxlength="8"/><br />
 		<label for="property_unit-0">Property Unit: </label>
 		<select id="property_unit-0" onchange="showInput(this)"  name="selproperty_unit[0]">
 			<option value="">Select</option>
@@ -112,13 +113,15 @@
 			<?php echo to_option_tags(get_table_list('property_unit', 'controlled_properties')) ?>
 		</select>
 		<input type="text" name="inputproperty_unit[0]" data="property_unit-0" hidden /><br />
-		
-		<label for="test_procedure-0">Analytical Procedure</label><input type="text" name="test_procedure_file[0]" id="test_procedure-0"/>
-		<label for="tmf_optimum-0">TMFC Optimum Level: </label><input type="number" name="tmf_optimum[0]" id="tmf_optimum-0"><br />
-		<label for="tmf_min-0">TMFC Minimum Level: </label><input type="number" name="tmf_min[0]" id="tmf_min-0"><br />
-		<label for="tmf_max-0">TMFC Maximum Level: </label><input type="number" name="tmf_max[0]" id="tmf_max-0"><br />
-		<label for="tds_min-0">TDS Minimum Level: </label><input type="number" name="tds_min[0]" id="tds_min-0"><br />
-		<label for="tds_max-0">TDS Maximum Level: </label><input type="number" name="tds_max[0]" id="tds_max-0"><br />
+
+		<label for="decimal_accuracy-0">Accurate to what decimal place: </label><input type="number" name="decimal_accuracy[0]" id="decimal_accuracy-0"/><br />
+
+		<label for="test_procedure-0">Analytical Procedure</label><input type="text" name="test_procedure_file[0]" id="test_procedure-0"/><br />
+		<label for="tmf_optimum-0">TMFC Optimum Level: </label><input type="number" name="tmf_optimum[0]" id="tmf_optimum-0" step="0.01"><br />
+		<label for="tmf_min-0">TMFC Minimum Level: </label><input type="number" name="tmf_min[0]" id="tmf_min-0" step="0.01"><br />
+		<label for="tmf_max-0">TMFC Maximum Level: </label><input type="number" name="tmf_max[0]" id="tmf_max-0" step="0.01"><br />
+		<label for="tds_min-0">TDS Minimum Level: </label><input type="number" name="tds_min[0]" id="tds_min-0" step="0.01"><br />
+		<label for="tds_max-0">TDS Maximum Level: </label><input type="number" name="tds_max[0]" id="tds_max-0" step="0.01"><br />
 	</div>
 </div>
 
@@ -130,11 +133,11 @@
 
 <button class="addProprietaryChemical">Add Proprietary Chemical</button><br />
 <div class="proprietary_chemical_section">
-	<div class="proprietary_chemical_inputs">	
+	<div class="proprietary_chemical_inputs">
 		<label for="proprietary_chemical_name-0">Proprietary Chemical: </label><input type="text" name="proprietary_chemical_name[0]" id="proprietary_chemical_name-0" /><br />
-		
+
 		<label for="sds_file-0">Safety Data Sheet: </label><input type="file" name="a_file[0]" id="sds_file-0" onchange="upload_file_ajax(this, $('#sds-0'), $('#sds-0_msg'))"/><span id="sds-0_msg"></span><input type="text" id="sds-0" name="sds[0]" hidden /><br />
-		
+
 		<label for="proprietary_chemical_vendor-0">Vendor: </label>
 		<select id='proprietary_chemical_vendor-0' name="selproprietary_chemical_vendor[0]"  onchange="showInput(this)">
 			<option value="">Select</option>
@@ -142,8 +145,8 @@
 			<?php echo to_option_tags(get_table_list('vendor', 'proprietary_chemicals')) ?>
 		</select>
 		<input type="text" name="inputproprietary_chemical_vendor[0]" data="proprietary_chemical_vendor-0" hidden /><br />
-		
-		<label for="proprietary_chemical_makeup-0">Proprietary Chemical Makeup Requirement Number: </label><input type="number" name="proprietary_chemical_makeup[0]" id="proprietary_chemical_makeup-0" />
+
+		<label for="proprietary_chemical_makeup-0">Proprietary Chemical Makeup Requirement Number: </label><input type="number" name="proprietary_chemical_makeup[0]" id="proprietary_chemical_makeup-0" step="0.01" />
 		<label for="proprietary_chemical_makeup_unit-0">Unit: </label>
 		<select id="proprietary_chemical_makeup_unit-0" name="selproprietary_chemical_makeup_unit[0]" onchange="showInput(this)">
 			<option value="">Select</option>

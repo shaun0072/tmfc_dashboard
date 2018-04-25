@@ -12,8 +12,6 @@
 	</head>
 	<body>
 
-
-
 		<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
 		 <symbol id="main_icon" viewBox="0 0 482.562 482.562">
 			<title>Main Icon</title>
@@ -325,14 +323,8 @@
 		</svg>
 
 
-
 		<section id="top_bar">
-			<div class="dashboard_info_cntr">
-				<h1><span class="title">Conditioner</span></h1>
-				<h3><span class="info_title_describe">Process:</span> <span class="info_title">Manganese Phosphate</span></h3>
-				<h3><span class="info_title_describe">Tank Number:</span> <span class="info_title">803</span></h3>
-			</div>
-
+			<div class="dashboard_info_cntr"></div>
 			<div class="tools_outside_cntr">
 				<div class="tools_inside_cntr">
 					<ul class="tool_list">
@@ -403,12 +395,10 @@
 			<div class="logo_cntr">
 				<p class="logo">T<span class="m">M</span>F</p>
 			</div>
-
 			<div class="user_info_cntr">
 				<div class="user_pic_cntr"><img src="assets/img/user_pic.JPG" alt="User Profile Picture"/></div>
 				<p class="name">Shaun Russell</p>
 			</div>
-
 			<div class="nav_cntr">
 				<ul class="nav_list">
 					<li class="nav_list_item main">
@@ -458,23 +448,14 @@
 			<div class="application_param widget">
 				<div class="inside">
 					<h5>Contorl Parameters</h5>
-					<table></table>
+					<table id="cp_table"></table>
 				</div>
 			</div>
 
 			<div class="widget lab_analysis">
 				<div class="inside">
 					<h5>Analysis</h5>
-					<div id="chart_cntr" style="width:100%;height: 300px;"></div>
-					<div class="comp_btn_cntr">
-						<ul class="conc_list">
-							<li>Zn</li>
-							<li style="color: grey;transform: scale(0.9);">NaOH</li>
-							<li>Carb</li>
-							<li>Fe</li>
-							<li>Cr</li>
-							<li>Cu</li>
-						</ul>
+
 					</div>
 				</div>
 			</div>
@@ -574,62 +555,15 @@
 
 		</section>
 
+
+
+
 		<div id="overlay"></div>
 
 	<script src="jquery-2.1.4.min.js"></script>
-	
+	<script src="node_modules/moment/moment.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="functions.js"></script>
-	<script>
-	$(function () {
-    var myChart = Highcharts.chart('chart_cntr', {
-        chart: {
-            type: 'spline',
-			backgroundColor : null,
-        },
-		credits : {
-			enabled: false
-		},
-		legend : {
-			enabled: false
-		},
-        title: {
-            text: 'Sodium Hydroxide Concentration',
-			style : {
-				color: '#c7cbd2',
-				fontFamily:  "Quicksand, sans-serif"
-			}
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-			lineWidth: 0,
-		   minorGridLineWidth: 0,
-		   lineColor: 'transparent',
-		   minorTickLength: 0,
-		   tickLength: 0
-        },
-        yAxis: {
-            title: {
-                text: 'opg',
-            },
-			gridLineWidth: 0,
-        },
-		plotOptions: {
-			spline: {
-				marker: {
-					enabled: false
-				}
-			}
-		},
-        series: [{
-            name: 'NaOH',
-            data: [15.9, 16.1, 16.5, 16.2, 15.5, 15.8, 16.0, 15.9],
-			color: 'red',
-			zIndex: 1
-        }]
-    });
-});
-	</script>
 
 	</body>
 </html>

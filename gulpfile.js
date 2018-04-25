@@ -11,14 +11,15 @@ var gulp         = require('gulp'),
     del          = require('del'),
     postcss      = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
-	cssnano      = require('cssnano'),
-	browserSync  = require('browser-sync'),
-	cssmin       = require('gulp-cssmin');
+	  cssnano      = require('cssnano'),
+	  browserSync  = require('browser-sync'),
+	  cssmin       = require('gulp-cssmin');
 
 gulp.task("concatScripts", function() {
     return gulp.src([
     'node_modules/moment/moment.js',
     'functions.js',
+    'js/lab_analysis_widget.js'
 	])
     .pipe(maps.init())
     .pipe(concat('app.js'))

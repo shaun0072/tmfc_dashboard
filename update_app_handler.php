@@ -76,7 +76,7 @@ if($result->num_rows > 0) {
 
 //Properties INFO
 $result = $conn->query('
-	SELECT property_id, property_name, property_unit, decimal_accuracy, tmf_optimum, tmf_min, tmf_max, tds_min, tds_max
+	SELECT property_id, property_name, property_symbol, property_unit, decimal_accuracy, tmf_optimum, tmf_min, tmf_max, tds_min, tds_max
 	FROM controlled_properties
 	WHERE application_id ='.$app_id
 );
@@ -92,6 +92,7 @@ if($result->num_rows > 0) {
 		$app_obj['properties'][] = [
 			"property_id"=>$row['property_id'],
 			"name"=>$row['property_name'],
+			"symbol"=>$row['property_symbol'],
 			"unit"=>$row['property_unit'],
 			"decimal_accuracy"=>$row['decimal_accuracy'],
 			"tmf_optimum"=>$row['tmf_optimum'],
