@@ -98,6 +98,7 @@ function update_app_obj(app_id) {
 				"Tank Number": app_obj["tank_assoc"][0]["name"]
 			});
 			update_cp_widget(app_obj);
+			update_lab_analysis_widget(app_obj);
 		}
 	 });
 }
