@@ -42,7 +42,13 @@ if($result->num_rows > 0) {
 }
 
 //Process_association INFO
-$result = $conn->query('SELECT processes.process_id, process_name, process_association.initiation_date, process_association.removal_date FROM processes, process_association WHERE process_association.application_id ='.$app_id.' AND processes.process_id = process_association.process_id');
+$result = $conn->query('SELECT
+	processes.process_id, process_name, process_association.initiation_date, process_association.removal_date
+	FROM
+	processes, process_association
+	WHERE
+	process_association.application_id ='.$app_id.' AND
+	processes.process_id = process_association.process_id');
 
 
 if(!$result) {
@@ -142,6 +148,37 @@ if($result->num_rows > 0) {
 
 }
 
+//Proprietary_Chemicals INFO
+$result = $conn->query("SELECT
+	proprietary_chemical_id, chemical_name, vendor, sds, makeup_requirement, makeup_unit, cost_per_unit, cost_unit
+	FROM
+	proprietary_chemicals
+	WHERE
+	application_id=".$app_id."
+");
+
+
+if(!$result) {
+	echo "Problem with getting proprietary_chemicals";
+	exit;
+}
+
+//check if any results
+if($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		$app_obj['proprietary_chemicals'][] =
+		[
+			"prop_chem_id" =>$row['proprietary_chemical_id'],
+		  "chemical_name" =>$row['chemical_name'],
+			"vendor" =>$row['vendor'],
+			"sds" =>$row['sds'],
+			"makeup_requirement" =>$row['makeup_requirement'],
+			"makeup_unit" =>$row['makeup_unit'],
+			"cost_per_unit" =>$row['cost_per_unit'],
+			"cost_unit" =>$row['cost_unit']
+	 ];
+	}
+}
 
 echo json_encode($app_obj);
 

@@ -4,7 +4,7 @@
 //Returns mysqli object OR error message
 function connect_to_db() {
 	//Store mysqli() method result in variable
-	$mysqli = new mysqli('localhost', 'root', 'happyday', 'tmfc_db');
+	$mysqli = new mysqli('localhost', 'root', '', 'tmfc_db');
 
 	//Handle errors from db connection OR return mysqli object
 	if(!$mysqli)

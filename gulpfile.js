@@ -19,7 +19,8 @@ gulp.task("concatScripts", function() {
     return gulp.src([
     'node_modules/moment/moment.js',
     'functions.js',
-    'js/lab_analysis_widget.js'
+    'js/lab_analysis_widget.js',
+    'js/top_bar_tools.js'
 	])
     .pipe(maps.init())
     .pipe(concat('app.js'))

@@ -26,9 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo htmlspecialchars($stmt->error);
 		exit;
 	} else {
-		$app_id = $a_id;
 		//Application INFO
-		$result = $conn->query('SELECT * FROM applications WHERE application_id ='.$app_id);
+		$result = $conn->query('SELECT * FROM applications WHERE application_id ='.$a_id);
 
 
 		if(!$result) {
@@ -58,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		//Process_association INFO
-		$result = $conn->query('SELECT processes.process_id, process_name, process_association.initiation_date, process_association.removal_date FROM processes, process_association WHERE process_association.application_id ='.$app_id.' AND processes.process_id = process_association.process_id');
+		$result = $conn->query('SELECT processes.process_id, process_name, process_association.initiation_date, process_association.removal_date FROM processes, process_association WHERE process_association.application_id ='.$a_id.' AND processes.process_id = process_association.process_id');
 
 
 		if(!$result) {
@@ -74,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 
 		//Tank INFO
-		$result = $conn->query('SELECT tank_association.tank_id, tanks.tank_number, tank_association.initiation_date, tank_association.removal_date FROM tanks, tank_association WHERE application_id ='.$app_id.' AND tank_association.tank_id = tanks.tank_id');
+		$result = $conn->query('SELECT tank_association.tank_id, tanks.tank_number, tank_association.initiation_date, tank_association.removal_date FROM tanks, tank_association WHERE application_id ='.$a_id.' AND tank_association.tank_id = tanks.tank_id');
 
 
 		if(!$result) {
@@ -84,19 +83,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		if($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$app_obj['tank_assoc'][] = [
-					"id"=>$row['tank_id'],
-					"name"=>$row['tank_number'],
-					"initiation"=>$row['initiation_date'],
-					"removal"=>$row['removal_date']
-				];
+				$app_obj['tank_assoc'][] = ["id"=>$row['tank_id'], "name"=>$row['tank_number'], "initiation"=>$row['initiation_date'], "removal"=>$row['removal_date']];
 			}
 
 		}
 
 
 		//Properties INFO
-		$result = $conn->query('SELECT property_id, property_name, property_unit, tmf_optimum, tmf_min, tmf_max, tds_min, tds_max FROM controlled_properties WHERE application_id ='.$app_id);
+		$result = $conn->query('
+			SELECT property_id, property_name, property_symbol, property_unit, decimal_accuracy, tmf_optimum, tmf_min, tmf_max, tds_min, tds_max
+			FROM controlled_properties
+			WHERE application_id ='.$a_id
+		);
 
 
 		if(!$result) {
@@ -106,14 +104,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		if($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				$app_obj['properties'][] = ["property_id"=>$row['property_id'], "name"=>$row['property_name'], "unit"=>$row['property_unit'], "tmf_optimum"=>$row['tmf_optimum'], "tmf_min"=>$row['tmf_min'], "tmf_max"=>$row['tmf_max'], "tds_min"=>$row['tds_min'], "tds_max"=>$row['tds_max'],];
+				$app_obj['properties'][] = [
+					"property_id"=>$row['property_id'],
+					"name"=>$row['property_name'],
+					"symbol"=>$row['property_symbol'],
+					"unit"=>$row['property_unit'],
+					"decimal_accuracy"=>$row['decimal_accuracy'],
+					"tmf_optimum"=>$row['tmf_optimum'],
+					"tmf_min"=>$row['tmf_min'],
+					"tmf_max"=>$row['tmf_max'],
+					"tds_min"=>$row['tds_min'],
+					"tds_max"=>$row['tds_max'],
+				];
 			}
 
 		}
 
 
 		//Test_results INFO
-		$result = $conn->query('SELECT controlled_properties.property_id, test_result_id, test_result_number, labs.lab_id, lab_name, test_procedures.test_procedure_id, test_result_dt FROM test_results, controlled_properties, test_procedures, labs WHERE application_id='.$app_id.' AND controlled_properties.property_id = test_results.property_id AND test_results.lab_id = labs.lab_id AND test_procedures.test_procedure_id = controlled_properties.procedure_id ORDER BY test_result_dt DESC');
+		$result = $conn->query("
+			SELECT controlled_properties.property_id, test_result_id, test_result_number, labs.lab_id, lab_name, test_procedures.test_procedure_id, test_result_dt
+			FROM test_results, controlled_properties, test_procedures, labs
+			WHERE application_id=".$a_id."
+			AND controlled_properties.property_id = test_results.property_id
+			AND test_results.lab_id = labs.lab_id
+			AND test_procedures.test_procedure_id = controlled_properties.procedure_id
+			ORDER BY test_result_dt DESC"
+		);
 
 
 		if(!$result) {
@@ -125,18 +142,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			while($row = $result->fetch_assoc()) {
 				for($x=0;$x<count($app_obj['properties']);$x++) {
 					if($app_obj['properties'][$x]['property_id'] == $row['property_id']) {
-						$app_obj['properties'][$x]['test_results'][] = [
+						$app_obj['properties'][$x]['test_results'][] =
+						[
 							"test_result_id" =>$row['test_result_id'],
-							"result" =>$row['test_result_number'],
-							"procedure_id" =>$row['test_procedure_id'],
-							"lab" =>$row['lab_name'],
+						  "result" =>$row['test_result_number'],
+						  "procedure_id" =>$row['test_procedure_id'],
+						  "lab" =>$row['lab_name'],
 							"lab_id" =>$row['lab_id'],
-							"test_date"=>$row['test_result_dt']];
+					  	"test_date"=>$row['test_result_dt']
+					 ];
 					}
 				}
 			}
 
 		}
+
 
 		echo json_encode($app_obj);
 	}

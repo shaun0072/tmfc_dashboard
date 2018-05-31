@@ -9,19 +9,20 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.6",
-    "browser-sync": "^2.23.7",
+    "browser-sync": "^2.24.4",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.2.3",
     "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
+    "connect": "^3.6.6",
     "moment": "^2.22.1"
   },
   "repository": {

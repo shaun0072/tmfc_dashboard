@@ -32,7 +32,6 @@ function update_general_obj() {
 		dataType: 'json',
 		success: function(gen_obj)
 		{
-			console.log(gen_obj);
 			general_obj = gen_obj;
 		}
 	});
@@ -99,6 +98,7 @@ function update_app_obj(app_id) {
 			});
 			update_cp_widget(app_obj);
 			update_lab_analysis_widget(app_obj);
+			checkTools();
 		}
 	 });
 }
@@ -194,9 +194,13 @@ function add_tr(submit) {
 		method:"POST",
 		dataType: 'json',
 		data: obj,
+		complete: function(res) {
+			console.log(res);
+		},
 		success: function(application_obj) {
 			app_obj = application_obj;
 			update_cp_widget(app_obj);
+			update_lab_analysis_widget(app_obj);
 			$('#overlay').empty().hide();
 		}
 	   });
@@ -674,6 +678,9 @@ function upload_file_ajax(file, new_file_input, msgHolder) {
 		dataType: 'json',
 		beforeSend:function(){
 		  new_file_input.html("<label class='text-success'>Image Uploading...</label>");
+		},
+		complete: function(data) {
+			console.log(data);
 		},
 		success:function(data)
 		{
