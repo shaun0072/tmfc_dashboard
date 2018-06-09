@@ -1472,9 +1472,9 @@
 
             mom = createUTC([2000, 1]).day(i);
             if (strict && !this._fullWeekdaysParse[i]) {
-                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
-                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
-                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
+                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\\.?') + '$', 'i');
             }
             if (!this._weekdaysParse[i]) {
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
@@ -2277,7 +2277,7 @@
 
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
-        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').trim();
+        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -4456,7 +4456,7 @@
     // Side effect imports
 
 
-    hooks.version = '2.22.1';
+    hooks.version = '2.22.2';
 
     setHookCallback(createLocal);
 
@@ -4539,7 +4539,6 @@ function update_general_obj() {
 		dataType: 'json',
 		success: function(gen_obj)
 		{
-			console.log(gen_obj);
 			general_obj = gen_obj;
 		}
 	});
@@ -4606,6 +4605,7 @@ function update_app_obj(app_id) {
 			});
 			update_cp_widget(app_obj);
 			update_lab_analysis_widget(app_obj);
+			checkTools();
 		}
 	 });
 }
@@ -5186,6 +5186,9 @@ function upload_file_ajax(file, new_file_input, msgHolder) {
 		beforeSend:function(){
 		  new_file_input.html("<label class='text-success'>Image Uploading...</label>");
 		},
+		complete: function(data) {
+			console.log(data);
+		},
 		success:function(data)
 		{
 		msgHolder.html(data.message);
@@ -5623,10 +5626,16 @@ function update_lab_analysis_widget(app_obj){
 }
 
 //check if tds
-if(app_obj.tds) {
-  console.log(true);
-} else {
-  console.log(false);
+function checkTools() {
+  if(app_obj.tds) {
+    var tds_btn = $('<li>', {
+      class: "tool_grp_item_cntr",
+      html: '<a href="./pdf/'+app_obj.tds+'" target="_blank"><svg class="tool_grp_item"><use xlink:href="#tds_icon"></use></svg><p>TDS</p></a>'
+    });
+    $('.resources .tools_grp').append(tds_btn);
+  } else {
+    console.log(false);
+  }
 }
 
 //# sourceMappingURL=app.js.map

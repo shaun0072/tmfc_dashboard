@@ -90,6 +90,9 @@ function update_app_obj(app_id) {
 		method:"POST",
 		dataType: 'json',
 		data: {"app_id": app_id},
+		complete : function(res) {
+			console.log(res);
+		},
 		success: function(application_obj) {
 			app_obj = application_obj;
 			updt_dshbrd_info_cont(app_obj.type, {
